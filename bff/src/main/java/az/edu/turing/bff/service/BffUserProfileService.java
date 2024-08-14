@@ -20,12 +20,12 @@ public class BffUserProfileService {
         this.userProfileClient = userProfileClient;
     }
 
-    public UserDto getUserProfile(Long userId) {
-        return userProfileClient.getUserProfileById(userId);
+    public UserDto getUserProfiles(Long userId) {
+        return userProfileClient.getUserProfiles(userId);
     }
 
-  public ProfileDto getProfileId(Long userId,Long profileId) {
-        return userProfileClient.getProfileId(userId,profileId);
+  public ProfileDto getProfileById(Long userId,Long profileId) {
+        return userProfileClient.getProfileById(userId,profileId);
   }
 
 
