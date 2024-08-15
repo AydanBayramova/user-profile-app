@@ -54,4 +54,14 @@ public class BffUserProfileService {
     private int calculateAge(LocalDate birthday) {
         return Period.between(birthday, LocalDate.now()).getYears();
     }
+
+    public void deleteProfileById(Long userId, Long profileId) {
+        userProfileClient.deleteUserProfile(userId, profileId);
+
+    }
+
+    public ProfileDto updateProfileById(Long userId, Long profileId, ProfileDto profileDto) {
+        return userProfileClient.updateUserProfile(userId, profileId, profileDto);
+
+    }
 }

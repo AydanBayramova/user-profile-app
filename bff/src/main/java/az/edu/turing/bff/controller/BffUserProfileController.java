@@ -36,4 +36,14 @@ public class BffUserProfileController {
     public ProfileDto getProfileById(@PathVariable Long userId, @PathVariable Long profileId) {
         return userProfileService.getProfileById(userId, profileId);
     }
+
+    @PutMapping("/{userId}/profiles/{profileId}")
+    public ProfileDto updateProfile(@PathVariable Long userId, @PathVariable Long profileId, @RequestBody ProfileDto profileDto) {
+        return userProfileService.updateProfileById(userId, profileId, profileDto);
+    }
+
+    @DeleteMapping("/{userId}/profiles/{profileId}")
+    public void deleteProfile(@PathVariable Long userId, @PathVariable Long profileId) {
+        userProfileService.deleteProfileById(userId, profileId);
+    }
 }
