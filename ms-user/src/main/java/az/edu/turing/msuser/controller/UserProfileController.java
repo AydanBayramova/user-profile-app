@@ -73,7 +73,7 @@ public class UserProfileController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUserById(@PathVariable Long id, @RequestBody UserDto user) {
-        log.info("Request to update user with ID: {}. New details: {}", id, user);
+        log.info("Request to update user with ID: {}. New <3 details: {}", id, user);
         UserDto updatedUser = userService.update(id, user);
         log.info("User with ID: {} successfully updated", id);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
@@ -116,11 +116,11 @@ public class UserProfileController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("{userId}/profiles/{profileId}")
-    public ResponseEntity<ProfileDto> updateProfileById(@PathVariable Long userId, @PathVariable Long profileId, @RequestBody ProfileDto profile) {
-        log.info("Request to update profile with ID: {} for user with ID: {}. New details: {}", profileId, userId, profile);
-        ProfileDto updatedProfile = profileService.updateProfile(userId, profileId, profile);
-        log.info("Profile with ID: {} successfully updated for user with ID: {}", profileId, userId);
-        return new ResponseEntity<>(updatedProfile, HttpStatus.OK);
+        @PutMapping("{userId}/profiles/{profileId}")
+        public ResponseEntity<ProfileDto> updateProfileById(@PathVariable Long userId, @PathVariable Long profileId, @RequestBody ProfileDto profile) {
+            log.info("Request to update profile with ID: {} for user with ID: {}. New details: {}", profileId, userId, profile);
+            ProfileDto updatedProfile = profileService.updateProfile(userId, profileId, profile);
+            log.info("Profile with ID: {} successfully updated for user with ID: {}", profileId, userId);
+            return new ResponseEntity<>(updatedProfile, HttpStatus.OK);
     }
 }
