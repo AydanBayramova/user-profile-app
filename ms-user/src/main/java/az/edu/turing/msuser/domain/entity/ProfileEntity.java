@@ -34,6 +34,9 @@ public class ProfileEntity {
     @Column(length = 100)
     private String email;
 
+
+    @Lob
+
     @Column(length = 100, columnDefinition = "TEXT")
     private String bio;
 
@@ -50,7 +53,6 @@ public class ProfileEntity {
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
     private Gender gender;
-
 
     @Column(name = "profile_image", columnDefinition = "TEXT")
     private String image;

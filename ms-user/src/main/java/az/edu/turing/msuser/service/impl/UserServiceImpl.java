@@ -8,6 +8,7 @@ import az.edu.turing.msuser.model.dto.UserDto;
 import az.edu.turing.msuser.model.mapper.UserMapper;
 import az.edu.turing.msuser.service.UserService;
 import lombok.RequiredArgsConstructor;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +21,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 @Slf4j
+
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
@@ -39,12 +41,14 @@ public class UserServiceImpl implements UserService {
         log.info("Fetching all users with pagination");
         Page<UserEntity> userEntities = userRepository.findAll(pageable);
         log.info("Fetched {} users", userEntities.getTotalElements());
+
         return userEntities.map(userMapper::toUserDto);
     }
 
     @Transactional
     @Override
     public Optional<UserDto> getById(Long id) {
+
         log.info("Fetching user with ID: {}", id);
         Optional<UserEntity> userEntity = userRepository.findByIdWithProfiles(id);
         if (userEntity.isPresent()) {
@@ -107,4 +111,5 @@ public class UserServiceImpl implements UserService {
             throw new ResourceNotFoundException("User with id " + id + " not found");
         }
     }
+
 }

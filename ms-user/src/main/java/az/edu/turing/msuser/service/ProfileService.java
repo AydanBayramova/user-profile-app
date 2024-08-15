@@ -4,8 +4,10 @@ package az.edu.turing.msuser.service;
 import az.edu.turing.msuser.model.dto.ProfileDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 
+@Service
 public interface ProfileService {
 
     ProfileDto addProfile(Long userId, ProfileDto profileDto);

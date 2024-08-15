@@ -3,6 +3,7 @@ package az.edu.turing.bff.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+
 import java.time.LocalDateTime;
 
 @Data
@@ -21,4 +22,5 @@ public class ProfileDto {
     private LocalDateTime lastSeen;
     private String lastSeenVisibility;
     private String imageVisibility;
+
 }

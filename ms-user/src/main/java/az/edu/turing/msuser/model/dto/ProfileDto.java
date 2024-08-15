@@ -5,6 +5,7 @@ import az.edu.turing.msuser.domain.enums.Status;
 import az.edu.turing.msuser.domain.enums.Visibility;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfileDto {
+
 
     @JsonProperty("id")
     @Schema(description = "Profile ID", example = "1")

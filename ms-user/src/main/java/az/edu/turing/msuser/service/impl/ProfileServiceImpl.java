@@ -1,5 +1,6 @@
 package az.edu.turing.msuser.service.impl;
 
+
 import az.edu.turing.msuser.domain.entity.ProfileEntity;
 import az.edu.turing.msuser.domain.entity.UserEntity;
 import az.edu.turing.msuser.domain.repository.ProfileRepository;
@@ -8,12 +9,12 @@ import az.edu.turing.msuser.model.dto.ProfileDto;
 import az.edu.turing.msuser.model.mapper.ProfileMapper;
 import az.edu.turing.msuser.service.ProfileService;
 import lombok.RequiredArgsConstructor;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Optional;
@@ -21,6 +22,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+
 public class ProfileServiceImpl implements ProfileService {
 
     private final ProfileRepository profileRepository;
@@ -63,6 +65,7 @@ public class ProfileServiceImpl implements ProfileService {
         profileRepository.save(profileEntity);
 
         log.info("Profile successfully added for user with ID: {}", userId);
+
         return profileMapper.toprofileDto(profileEntity);
     }
 
@@ -77,6 +80,7 @@ public class ProfileServiceImpl implements ProfileService {
             profileMapper.updateProfileEntityFromDto(profileDto, existingProfile);
             ProfileEntity updatedProfile = profileRepository.save(existingProfile);
 
+
             log.info("Profile with ID: {} for user with ID: {} successfully updated", profileId, userId);
             return profileMapper.toprofileDto(updatedProfile);
         } else {
@@ -84,6 +88,7 @@ public class ProfileServiceImpl implements ProfileService {
             throw new RuntimeException("Profile not found");
         }
     }
+
 
     @Override
     public ProfileDto getProfileById(Long userId, Long profileId) {
@@ -114,6 +119,7 @@ public class ProfileServiceImpl implements ProfileService {
         profileRepository.delete(profile);
 
         log.info("Profile with ID: {} for user with ID: {} successfully deleted", profileId, userId);
+
     }
 
     @Transactional
