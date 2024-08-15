@@ -45,7 +45,7 @@ public class ProfileEntity {
 
 
 
-    @Column(length = 100, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String bio;
 
     @NotNull
