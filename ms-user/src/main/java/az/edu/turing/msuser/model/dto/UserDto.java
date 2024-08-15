@@ -1,6 +1,7 @@
 package az.edu.turing.msuser.model.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UserDto {
 
+    @JsonIgnore
     @Schema(description = "User ID", example = "1")
     private Long id;
 
@@ -35,6 +37,7 @@ public class UserDto {
     @Schema(description = "Date when the user was last updated", example = "2024-08-14")
     private LocalDate updateDate;
 
+    @JsonIgnore
     @Schema(description = "List of profiles associated with the user")
     private List<ProfileDto> profiles;
 }
