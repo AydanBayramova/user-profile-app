@@ -3,6 +3,7 @@ package az.edu.turing.msuser.model.dto;
 import az.edu.turing.msuser.domain.enums.Gender;
 import az.edu.turing.msuser.domain.enums.Status;
 import az.edu.turing.msuser.domain.enums.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -19,10 +20,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ProfileDto {
 
-
-    @JsonProperty("id")
-    @Schema(description = "Profile ID", example = "1")
-    private Long id;
+//    @JsonIgnore
+//    @JsonProperty("id")
+//    @Schema(description = "Profile ID", example = "1")
+//    private Long id;
 
     @JsonProperty("username")
     @Schema(description = "Profile username", example = "john_doe")
@@ -44,9 +45,9 @@ public class ProfileDto {
     @Schema(description = "Profile bio", example = "Software Engineer with 5 years of experience.")
     private String bio;
 
-    @JsonProperty("status")
-    @Schema(description = "Profile status", example = "ACTIVE")
-    private Status status;
+//    @JsonProperty("status")
+//    @Schema(description = "Profile status", example = "ACTIVE")
+//    private Status status;
 
     @JsonProperty("gender")
     @Schema(description = "Gender of the profile owner", example = "MALE")
@@ -56,13 +57,14 @@ public class ProfileDto {
     @Schema(description = "Profile image URL", example = "https://example.com/images/john_doe.jpg")
     private String image;
 
-    @JsonProperty("user_id")
-    @Schema(description = "User ID associated with the profile", example = "10")
-    private Long userId;
+//    @JsonIgnore
+//    @JsonProperty("user_id")
+//    @Schema(description = "User ID associated with the profile", example = "10")
+//    private Long userId;
 
-    @JsonProperty("user_username")
-    @Schema(description = "Username of the associated user", example = "user123")
-    private String userUsername;
+//    @JsonProperty("user_username")
+//    @Schema(description = "Username of the associated user", example = "user123")
+//    private String userUsername;
 
     @JsonProperty("last_seen")
     @Schema(description = "Last seen timestamp", example = "2024-08-14T18:47:09.366Z")
