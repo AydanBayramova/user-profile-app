@@ -202,17 +202,13 @@ class UserControllerTest {
 
     private ProfileDto createProfileDto() {
         return new ProfileDto(
-                1L,
                 "john_doe",
                 "123 Main St",
                 "+994501234567",
                 "john.doe@example.com",
                 "Software Engineer with 5 years of experience.",
-                Status.ACTIVE,
                 Gender.MALE,
                 "https://example.com/images/john_doe.jpg",
-                10L,
-                "user123",
                 LocalDateTime.now(),
                 Visibility.PUBLIC,
                 Visibility.PUBLIC

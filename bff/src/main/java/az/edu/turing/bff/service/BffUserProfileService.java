@@ -62,6 +62,5 @@ public class BffUserProfileService {
 
     public ProfileDto updateProfileById(Long userId, Long profileId, ProfileDto profileDto) {
         return userProfileClient.updateUserProfile(userId, profileId, profileDto);
-
     }
 }

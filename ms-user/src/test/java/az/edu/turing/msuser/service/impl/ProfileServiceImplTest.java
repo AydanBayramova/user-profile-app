@@ -73,7 +73,6 @@ class ProfileServiceImplTest {
         profileEntity.setId(1L);
 
         ProfileDto profileDto = new ProfileDto();
-        profileDto.setId(1L);
 
         when(profileRepository.findByUserIdAndId(1L, 1L)).thenReturn(Optional.of(profileEntity));
         when(profileMapper.toprofileDto(profileEntity)).thenReturn(profileDto);
@@ -81,7 +80,6 @@ class ProfileServiceImplTest {
         ProfileDto result = profileService.getProfileById(1L, 1L);
 
         assertNotNull(result);
-        assertEquals(1L, result.getId());
     }
 
     @Test
