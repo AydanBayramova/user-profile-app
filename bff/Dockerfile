@@ -1,7 +1,7 @@
 FROM openjdk:22
 
 # Copy the jar file into the container
-COPY build/libs/ms-user-0.0.1-SNAPSHOT.jar app.jar
+COPY build/libs/bff-0.0.1-SNAPSHOT.jar app.jar
 
 
 # Expose the port the app runs on

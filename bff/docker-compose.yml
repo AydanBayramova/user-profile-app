@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: bff-postgres
+    image: postgres
+    ports:
+      - "5433:5432"  # Kullanılan portlardan çakışmayı önlemek için 5433'e değiştirdim
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Aba32835
+
+  bff:
+    container_name: bff-app
+    image: bff-image
+    ports:
+      - "8089:8082"
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://bff-postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Aba32835
+      SPRING_APPLICATION_NAME: user-profile-app
+      SERVER_PORT: 8081
+
+    tty: true
+    stdin_open: true
+networks:
+  default:
+    external:
+      name: shared-network
