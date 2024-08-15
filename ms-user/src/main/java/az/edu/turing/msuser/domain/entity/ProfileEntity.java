@@ -34,9 +34,6 @@ public class ProfileEntity {
     @Column(length = 100)
     private String email;
 
-
-    @Lob
-
     @Column(length = 100, columnDefinition = "TEXT")
     private String bio;
 
