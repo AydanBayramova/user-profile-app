@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -43,7 +44,8 @@ public class UserProfileClient {
                     url,
                     HttpMethod.GET,
                     null,
-                    new ParameterizedTypeReference<Page<UserDto>>() {}
+                    new ParameterizedTypeReference<Page<UserDto>>() {
+                    }
             );
             Page<UserDto> users = response.getBody();
             System.out.println("Received Users: " + users);
@@ -62,7 +64,8 @@ public class UserProfileClient {
                     url,
                     HttpMethod.GET,
                     null,
-                    new ParameterizedTypeReference<Page<ProfileDto>>() {}
+                    new ParameterizedTypeReference<Page<ProfileDto>>() {
+                    }
             );
             Page<ProfileDto> profiles = response.getBody();
             System.out.println("Received Profiles: " + profiles);
@@ -85,4 +88,26 @@ public class UserProfileClient {
             return null;
         }
     }
+
+    public ProfileDto updateUserProfile(Long userId, Long profileId, ProfileDto profileDto) {
+        try {
+            String url = userProfileBaseUrl + "/api/v1/users/" + userId + "/profiles";
+            HttpEntity<ProfileDto> request = new HttpEntity<>(profileDto);
+            ResponseEntity<ProfileDto> response = restTemplate.exchange(url, HttpMethod.PUT, request, ProfileDto.class);
+            return response.getBody();
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            return null;
+        }
+    }  //UPDATE profile
+
+
+    public void deleteUserProfile(Long userId, Long profileId) {
+        try {
+            String url = userProfileBaseUrl + "/api/v1/users/" + userId + "/profiles/" + profileId;
+            restTemplate.delete(url);
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    } //DELETE profile
 }

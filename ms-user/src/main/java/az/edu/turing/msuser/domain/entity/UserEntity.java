@@ -34,8 +34,7 @@ public class UserEntity {
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
-    @Column(name = "create_date",
-            updatable = false)
+    @Column(name = "create_date")
     private LocalDate createDate;
 
     @Column(name = "update_date")

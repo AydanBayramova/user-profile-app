@@ -35,9 +35,8 @@ public class ProfileEntity {
     private String email;
 
 
-    @Lob
 
-    @Column(length = 100, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String bio;
 
     @NotNull
