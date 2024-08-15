@@ -27,14 +27,14 @@ public class BffUserProfileService {
     public List<UserDto> getAllUsersByAge(int age) {
         List<UserDto> allUsers = userProfileClient.getUsers(Pageable.unpaged()).getContent();
         return allUsers.stream()
-                .filter(user -> calculateAge(user.getBirthday()) == age)
+                .filter(user -> calculateAge(user.getBirthday()) < age)
                 .collect(Collectors.toList());
     }
 
     public List<ProfileDto> getAllProfilesByAge(int age) {
         List<UserDto> allUsers = userProfileClient.getUsers(Pageable.unpaged()).getContent();
         List<Long> userIds = allUsers.stream()
-                .filter(user -> calculateAge(user.getBirthday()) == age)
+                .filter(user -> calculateAge(user.getBirthday()) < age)
                 .map(UserDto::getId)
                 .toList();
 
