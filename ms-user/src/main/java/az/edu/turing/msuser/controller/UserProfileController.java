@@ -86,7 +86,7 @@ public class UserProfileController {
     public ResponseEntity<ProfileDto> addProfile(@PathVariable Long userId, @RequestBody ProfileDto profile) {
         log.info("Request to add profile for user with ID: {}. Profile details: {}", userId, profile);
         ProfileDto addedProfile = profileService.addProfile(userId, profile);
-        log.info("Profile successfully added with ID: {}", addedProfile.getId());
+//        log.info("Profile successfully added with ID: {}", addedProfile.getId());
         return new ResponseEntity<>(addedProfile, HttpStatus.CREATED);
     }
 
