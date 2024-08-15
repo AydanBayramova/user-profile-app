@@ -16,4 +16,6 @@ public interface ProfileRepository extends JpaRepository<ProfileEntity, Long> {
     Page<ProfileEntity> findAllByUserId(Long userId, Pageable pageable);
 
     Optional<ProfileEntity>findByUserIdAndId(Long userId, Long profileId);
+    boolean existsByUsername(String username);
+
 }

@@ -37,6 +37,13 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
 	implementation 'org.springframework.boot:spring-boot-starter-logging'
 	implementation 'jakarta.validation:jakarta.validation-api'
+
+	// Spring Boot test dependencies
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+	// Mockito (optional, for mocking dependencies)
+	testImplementation('org.mockito:mockito-core')
+
 }
 
 tasks.named('test') {

@@ -1,7 +1,6 @@
 package az.edu.turing.msuser.domain.entity;
 
 
-import az.edu.turing.msuser.annotation.EmailOrPhoneRequired;
 import az.edu.turing.msuser.domain.enums.Gender;
 import az.edu.turing.msuser.domain.enums.Status;
 import az.edu.turing.msuser.domain.enums.Visibility;
@@ -15,13 +14,13 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@EmailOrPhoneRequired
+
 public class ProfileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 15, unique = true)
     private String username;
 
     @Column(length = 100)
@@ -35,7 +34,9 @@ public class ProfileEntity {
     @Column(length = 100)
     private String email;
 
+
     @Lob
+
     @Column(length = 100, columnDefinition = "TEXT")
     private String bio;
 
@@ -50,10 +51,9 @@ public class ProfileEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(length =10)
+    @Column(length = 10)
     private Gender gender;
 
-    @Lob
     @Column(name = "profile_image", columnDefinition = "TEXT")
     private String image;
 
